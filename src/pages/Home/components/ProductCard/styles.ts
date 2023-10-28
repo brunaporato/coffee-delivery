@@ -14,6 +14,12 @@ export const ProductCardContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  transition: all .4s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
   img {
     position: absolute;
     top: -2rem;
