@@ -1,7 +1,39 @@
 import { BannerTop } from "./components/BannerTop";
+import { HomeContainer } from "./styles";
+import coffee from "../../assets/Coffee.png"
+import { ProductCard } from "./components/ProductCard";
+
+const products = [
+  {
+    name: 'Expresso Tradicional',
+    description: 'O tradicional café feito com água quente e grãos moídos',
+    image: coffee,
+    price: "9,90"
+  },
+  
+]
 
 export function Home() {
   return (
-    <BannerTop />
+    <HomeContainer>
+      <BannerTop />
+      <main>
+        <h1>Nossos cafés</h1>
+        <div className="menu">
+          {
+            products.map((product) => {
+              return (
+              <ProductCard
+                title={product.name}
+                image={product.image}
+                description={product.description}
+                price={product.price}
+              />)
+            })
+          }
+        </div>
+      </main>
+    </HomeContainer>
+    
   )
 }
