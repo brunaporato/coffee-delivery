@@ -1,9 +1,39 @@
 import { BannerTop } from "./components/BannerTop";
-import { HomeContainer } from "./styles";
+import { HomeContainer, MenuContainer } from "./styles";
 import coffee from "../../assets/Coffee.png"
 import { ProductCard } from "./components/ProductCard";
 
 const products = [
+  {
+    name: 'Expresso Tradicional',
+    description: 'O tradicional café feito com água quente e grãos moídos',
+    image: coffee,
+    price: "9,90"
+  },
+  {
+    name: 'Expresso Tradicional',
+    description: 'O tradicional café feito com água quente e grãos moídos',
+    image: coffee,
+    price: "9,90"
+  },
+  {
+    name: 'Expresso Tradicional',
+    description: 'O tradicional café feito com água quente e grãos moídos',
+    image: coffee,
+    price: "9,90"
+  },
+  {
+    name: 'Expresso Tradicional',
+    description: 'O tradicional café feito com água quente e grãos moídos',
+    image: coffee,
+    price: "9,90"
+  },
+  {
+    name: 'Expresso Tradicional',
+    description: 'O tradicional café feito com água quente e grãos moídos',
+    image: coffee,
+    price: "9,90"
+  },
   {
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
@@ -17,7 +47,7 @@ export function Home() {
   return (
     <HomeContainer>
       <BannerTop />
-      <main>
+      <MenuContainer>
         <h1>Nossos cafés</h1>
         <div className="menu">
           {
@@ -32,7 +62,7 @@ export function Home() {
             })
           }
         </div>
-      </main>
+      </MenuContainer>
     </HomeContainer>
     
   )

@@ -8,7 +8,6 @@ export const ProductCardContainer = styled.div`
 
   width: 25.6rem;
   padding: 11.2rem 2rem 2rem;
-  margin-top: 2rem;
 
   position: relative;
 
