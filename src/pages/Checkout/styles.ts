@@ -30,32 +30,16 @@ export const FinishOrderContainer = styled.section`
 
   margin-bottom: 1.2rem;
 
-  .adress-top {
-    display: flex;
-    gap: .8rem;
-    align-self: stretch;
-    color: ${(props) => props.theme["yellow-dark"]};
-
-    p {
-      color: ${(props) => props.theme["base-subtitle"]};
-      line-height: 130%;
-
-      display: flex;
-      flex-direction: column;
-      gap: .2rem;
-
-      span {
-        font-size: 1.4rem;
-        color: ${(props) => props.theme["base-text"]};
-      }
-    }
-  }
-
   .adress-inputs {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
     white-space: nowrap;
+
+
+    .cep {
+      width: fit-content;
+    }
 
     .number {
       display: grid;
@@ -69,7 +53,44 @@ export const FinishOrderContainer = styled.section`
       grid-template-columns: 2fr 3fr 1fr;
     }
   }
+
+  .payment-options {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+
+    width: 100%;
+  }
 `
+
+export const TopOfFinishOrder = styled.div`
+  display: flex;
+  gap: .8rem;
+  align-self: stretch;
+  color: ${(props) => props.theme["yellow-dark"]};
+
+
+  .dollar-icon {
+    color: ${(props) => props.theme.purple};
+  }
+
+  p {
+    flex: 1;
+
+    color: ${(props) => props.theme["base-subtitle"]};
+    line-height: 130%;
+
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+
+    span {
+      font-size: 1.4rem;
+      color: ${(props) => props.theme["base-text"]};
+    }
+  }
+`
+
 export const InputText = styled.input`
   background: ${(props) => props.theme["base-input"]};
   border: 0;
