@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CheckoutContainer = styled.div`
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr minmax(42rem, 1fr);
   gap: 3.2rem;
 
   padding: 4rem 16rem;
@@ -115,4 +115,62 @@ export const InputText = styled.input`
   }
 `
 
-export const OrderInfoContainer = styled.section``
+export const OrderInfoContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding: 4rem;
+
+  background: ${(props) => props.theme["base-card"]};
+  border-radius: .6rem 4.4rem;
+
+  .price {
+    display: grid;
+    gap: 1.2rem;
+
+    p {
+      color: ${(props) => props.theme["base-text"]};
+      font-size: 1.4rem;
+      line-height: 130%;
+    }
+
+    span {
+      color: ${(props) => props.theme["base-text"]};
+      font-size: 1.6rem;
+    }
+
+    h2 {
+      color: ${(props) => props.theme["base-subtitle"]};
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 130%;
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+`
+
+export const ConfirmOrderButton = styled.button`
+  background-color: ${(props) => props.theme.yellow};
+  border: 0;
+  padding: 1.2rem .8rem;
+  border-radius: .6rem;
+
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 160%;
+  color: ${(props) => props.theme.white};
+
+  cursor: pointer;
+
+  transition: all .3s ease;
+
+  &:hover {
+    background: ${(props) => props.theme["yellow-dark"]};
+  }
+`

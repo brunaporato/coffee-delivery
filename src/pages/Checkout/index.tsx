@@ -1,7 +1,10 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { CheckoutContainer, FinishOrderContainer, InputText, OrderInfoContainer, TopOfFinishOrder } from "./styles";
+import { CheckoutContainer, ConfirmOrderButton, FinishOrderContainer, InputText, OrderInfoContainer, TopOfFinishOrder } from "./styles";
 import { SelectPayment } from "./components/SelectPayment";
 import { useState } from "react";
+import { CartItem } from "./components/CartItem";
+import coffee from "../../assets/Coffee.png"
+
 
 export function Checkout() {
   const [activeOption, setActiveOption] = useState<string | null>(null);
@@ -74,7 +77,33 @@ export function Checkout() {
       </div>
       <div className="order-info">
         <h1>Cafés selecionados</h1>
-        <OrderInfoContainer></OrderInfoContainer>
+        <OrderInfoContainer>
+          <div className="items">
+            <CartItem
+              title="Café"
+              image={coffee}
+              quantity={2}
+              itemPrice="9,90"
+            />
+          </div>
+          <section className="price">
+            <div className="price-items">
+              <p>Total de itens</p>
+              <span>R$ 29,70</span>
+            </div>
+            <div className="delivery-tax">
+              <p>Entrega</p>
+              <span>R$ 3,50</span>
+            </div>
+            <div className="total-order">
+              <h2>Total</h2>
+              <h2>R$ 33,20</h2>
+            </div>
+          </section>
+          <ConfirmOrderButton>
+            confirmar pedido
+          </ConfirmOrderButton>
+        </OrderInfoContainer>
       </div>
     </CheckoutContainer>
   )
