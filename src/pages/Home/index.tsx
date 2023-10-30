@@ -1,47 +1,8 @@
 import { BannerTop } from "./components/BannerTop";
 import { HomeContainer, MenuContainer } from "./styles";
-import coffee from "../../assets/Coffee.png"
 import { ProductCard } from "./components/ProductCard";
 
-const products = [
-  {
-    name: 'Expresso Tradicional',
-    description: 'O tradicional café feito com água quente e grãos moídos',
-    image: coffee,
-    price: "9,90"
-  },
-  {
-    name: 'Expresso Tradicional',
-    description: 'O tradicional café feito com água quente e grãos moídos',
-    image: coffee,
-    price: "9,90"
-  },
-  {
-    name: 'Expresso Tradicional',
-    description: 'O tradicional café feito com água quente e grãos moídos',
-    image: coffee,
-    price: "9,90"
-  },
-  {
-    name: 'Expresso Tradicional',
-    description: 'O tradicional café feito com água quente e grãos moídos',
-    image: coffee,
-    price: "9,90"
-  },
-  {
-    name: 'Expresso Tradicional',
-    description: 'O tradicional café feito com água quente e grãos moídos',
-    image: coffee,
-    price: "9,90"
-  },
-  {
-    name: 'Expresso Tradicional',
-    description: 'O tradicional café feito com água quente e grãos moídos',
-    image: coffee,
-    price: "9,90"
-  },
-  
-]
+import { products } from "../../data/Products";
 
 export function Home() {
   return (
@@ -54,6 +15,7 @@ export function Home() {
             products.map((product) => {
               return (
               <ProductCard
+                key={product.id}
                 title={product.name}
                 image={product.image}
                 description={product.description}
@@ -64,6 +26,5 @@ export function Home() {
         </div>
       </MenuContainer>
     </HomeContainer>
-    
   )
 }

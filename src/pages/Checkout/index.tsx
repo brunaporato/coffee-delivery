@@ -3,7 +3,6 @@ import { CheckoutContainer, ConfirmOrderButton, FinishOrderContainer, InputText,
 import { SelectPayment } from "./components/SelectPayment";
 import { useState } from "react";
 import { CartItem } from "./components/CartItem";
-import coffee from "../../assets/Coffee.png"
 
 
 export function Checkout() {
@@ -81,7 +80,7 @@ export function Checkout() {
           <div className="items">
             <CartItem
               title="Café"
-              image={coffee}
+              image=""
               quantity={2}
               itemPrice="9,90"
             />
