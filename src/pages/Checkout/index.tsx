@@ -48,7 +48,7 @@ export function Checkout() {
             <p>
               Pagamento
               <span>
-              O pagamento é feito na entrega. Escolha a forma que deseja pagar
+              O pagamento é feito na entrega. Escolha a forma que deseja pagar.
               </span>
             </p>
           </TopOfFinishOrder>

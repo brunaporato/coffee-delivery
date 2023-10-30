@@ -1,6 +1,7 @@
 import { ShoppingCart } from "phosphor-react";
 import { AddToCartContainer, ProductCardContainer } from "./styles";
 import { InputNumber } from "../../../../components/InputNumber";
+import { useState } from "react";
 
 interface ProductCardProps {
   title: string;
@@ -10,6 +11,8 @@ interface ProductCardProps {
 }
 
 export function ProductCard({title, image, description, price}: ProductCardProps) {
+  const [quantity, setQuantity] = useState(1);
+
   return (
     <ProductCardContainer>
       <img src={image} alt="" />
@@ -21,7 +24,7 @@ export function ProductCard({title, image, description, price}: ProductCardProps
           <p>R$ <span>{price}</span></p>
         </section>
         <section className="quantity-cart">
-          <InputNumber />
+          <InputNumber quantity={quantity} />
           <div className="cart">
             <ShoppingCart weight="fill" />
           </div>

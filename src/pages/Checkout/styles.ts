@@ -56,11 +56,8 @@ export const FinishOrderContainer = styled.section`
   }
 
   .payment-options {
-    display: grid;
-    gap: 1.2rem;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-
-    width: 100%;
+    display: flex;
+    gap: 1.5rem;
   }
 `
 
