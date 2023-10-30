@@ -99,7 +99,7 @@ export function Checkout() {
               <h2>R$ 33,20</h2>
             </div>
           </section>
-          <ConfirmOrderButton>
+          <ConfirmOrderButton to="/success">
             confirmar pedido
           </ConfirmOrderButton>
         </OrderInfoContainer>

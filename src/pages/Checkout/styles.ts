@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const CheckoutContainer = styled.div`
@@ -153,14 +154,19 @@ export const OrderInfoContainer = styled.section`
   }
 `
 
-export const ConfirmOrderButton = styled.button`
+export const ConfirmOrderButton = styled(NavLink)`
   background-color: ${(props) => props.theme.yellow};
   border: 0;
   padding: 1.2rem .8rem;
   border-radius: .6rem;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
+  text-decoration: none;
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 160%;
