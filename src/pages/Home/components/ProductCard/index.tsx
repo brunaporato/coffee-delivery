@@ -11,7 +11,6 @@ interface ProductCardProps {
 }
 
 export function ProductCard({title, image, description, price}: ProductCardProps) {
-  const [quantity, setQuantity] = useState(1);
 
   return (
     <ProductCardContainer>
@@ -24,7 +23,7 @@ export function ProductCard({title, image, description, price}: ProductCardProps
           <p>R$ <span>{price}</span></p>
         </section>
         <section className="quantity-cart">
-          <InputNumber quantity={quantity} />
+          <InputNumber />
           <div className="cart">
             <ShoppingCart weight="fill" />
           </div>
