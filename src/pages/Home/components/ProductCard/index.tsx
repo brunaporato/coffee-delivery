@@ -18,7 +18,9 @@ export function ProductCard({title, image, description, price, tags}: ProductCar
         {tags &&
         tags.map((tag) => {
           return (
-            <span>
+            <span
+              key={tags.indexOf(tag)}
+            >
               {tag}
             </span>
           )
