@@ -1,21 +1,29 @@
 import { ShoppingCart } from "phosphor-react";
 import { AddToCartContainer, ProductCardContainer } from "./styles";
 import { InputNumber } from "../../../../components/InputNumber";
-import { useState } from "react";
 
 interface ProductCardProps {
   title: string;
   image: string;
   description: string;
   price: string;
+  tags?: string[];
 }
 
-export function ProductCard({title, image, description, price}: ProductCardProps) {
-
+export function ProductCard({title, image, description, price, tags}: ProductCardProps) {
   return (
     <ProductCardContainer>
       <img src={image} alt="" />
-      <span>tradicional</span>
+      <div className="tags">
+        {tags &&
+        tags.map((tag) => {
+          return (
+            <span>
+              {tag}
+            </span>
+          )
+        })}
+      </div>
       <h2>{title}</h2>
       <p>{description}</p>
       <AddToCartContainer>

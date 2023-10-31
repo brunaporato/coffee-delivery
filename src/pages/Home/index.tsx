@@ -20,6 +20,7 @@ export function Home() {
                 image={product.image}
                 description={product.description}
                 price={product.price}
+                tags={product.tags}
               />)
             })
           }

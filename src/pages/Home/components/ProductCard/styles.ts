@@ -26,7 +26,14 @@ export const ProductCardContainer = styled.div`
     left: 6.8rem;
   }
 
-  > span {
+  .tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+
+
+    span {
     text-transform: uppercase;
     font-size: 1rem;
     font-weight: 700;
@@ -37,7 +44,7 @@ export const ProductCardContainer = styled.div`
     border-radius: 100px;
 
     padding: .4rem .8rem;
-    margin: 0 auto;
+  }
   }
 
   h2 {
