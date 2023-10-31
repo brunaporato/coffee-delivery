@@ -13,7 +13,16 @@ import Cubano from "../assets/products-image/Type=Cubano.png";
 import ExpressoCremoso from "../assets/products-image/Type=Expresso Cremoso.png";
 import Latte from "../assets/products-image/Type=Latte.png";
 
-export const products = [
+export interface ProductType {
+  id: number
+  name: string
+  description: string
+  image: string
+  price: string
+  tags: string[]
+}
+
+export const products: ProductType[] = [
   {
     id: (Math.random() * 100),
     name: 'Expresso Tradicional',
