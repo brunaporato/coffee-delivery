@@ -18,6 +18,10 @@ export const HeaderContainer = styled.div`
     align-items: center;
     gap: 1.2rem;
   }
+
+  .hide {
+    display: none;
+  }
 `
 
 export const LocationContainer = styled.div`

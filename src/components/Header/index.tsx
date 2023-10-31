@@ -3,8 +3,21 @@ import { ShoppingCart } from "@phosphor-icons/react"
 import logo from "../../assets/logo-coffee-delivery.svg"
 import { MapPin } from "@phosphor-icons/react/dist/ssr/MapPin";
 import { NavLink } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { ProductContext } from "../../context/ProductContext";
 
 export function Header() {
+  const { cartProducts } = useContext(ProductContext)
+  const [hideSpan, setHideSpan] = useState(true);
+
+  const numberOfItems = cartProducts.length;
+
+  useEffect(() => {
+    if(numberOfItems > 0) {
+      setHideSpan(false)
+    }
+  }, [numberOfItems]);
+
   return (
     <HeaderContainer>
       <NavLink to="/">
@@ -17,7 +30,7 @@ export function Header() {
         </LocationContainer>
         <CheckoutCartContainer to="/checkout">
           <ShoppingCart weight="fill" size={22} />
-          <span>0</span>
+          <span className={hideSpan ? 'hide' : ''}>{numberOfItems}</span>
         </CheckoutCartContainer>
       </div>
     </HeaderContainer>
