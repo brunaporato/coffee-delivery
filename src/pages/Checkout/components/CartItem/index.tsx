@@ -1,27 +1,33 @@
+import { useContext } from "react";
 import { InputNumber } from "../../../../components/InputNumber";
+import { ProductList } from "../../../../data/Products";
 import { CartItemContainer, RemoveButton } from "./styles";
 import { Trash } from "phosphor-react";
+import { ProductContext } from "../../../../context/ProductContext";
 
 interface CartItemProps {
-  title: string;
-  quantity: number;
-  image: string;
-  itemPrice: string;
+  product: ProductList
 }
 
-export function CartItem({ title, quantity, image, itemPrice }: CartItemProps) {
-  const price = parseFloat(itemPrice.replace(",", ".")) * quantity
+export function CartItem({ product }: CartItemProps) {
+  const { RemoveProduct } = useContext(ProductContext)
+
+  const price = parseFloat(product.price.replace(",", ".")) * product.quantity
   const formattedPrice = price.toFixed(2).replace(".", ",");
+
+  function handleRemoveProduct()  {
+    RemoveProduct(product)
+  }
 
   return (
     <CartItemContainer>
       <div className="image-info">
-        <img src={image} alt="" />
+        <img src={product.image} alt="" />
         <div className="info">
-          <p>{title}</p>
+          <p>{product.name}</p>
           <div className="quantity-remove">
-            <InputNumber quantity={quantity} />
-            <RemoveButton>
+            <InputNumber />
+            <RemoveButton onClick={handleRemoveProduct}>
               <Trash size={16} className="icon" />
               remover
             </RemoveButton>

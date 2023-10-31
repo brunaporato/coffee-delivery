@@ -2,6 +2,7 @@ import { Minus, Plus } from "phosphor-react";
 import { InputNumberContainer } from "./styles";
 import { useState } from "react";
 
+
 export function InputNumber() {
   const [quantity, setQuantity] = useState(1);
 

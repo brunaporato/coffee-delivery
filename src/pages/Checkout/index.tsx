@@ -1,12 +1,15 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 import { CheckoutContainer, ConfirmOrderButton, FinishOrderContainer, InputText, OrderInfoContainer, TopOfFinishOrder } from "./styles";
 import { SelectPayment } from "./components/SelectPayment";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { CartItem } from "./components/CartItem";
+import { ProductContext } from "../../context/ProductContext";
 
 
 export function Checkout() {
   const [activeOption, setActiveOption] = useState<string | null>(null);
+
+  const { cartProducts } = useContext(ProductContext)
 
   function handleOptionClick(option: string) {
     if(option === activeOption) {
@@ -78,12 +81,16 @@ export function Checkout() {
         <h1>Cafés selecionados</h1>
         <OrderInfoContainer>
           <div className="items">
-            <CartItem
-              title="Café"
-              image=""
-              quantity={2}
-              itemPrice="9,90"
-            />
+            {cartProducts &&
+              cartProducts.map((product) => {
+                return (
+                  <CartItem
+                    key={product.id}
+                    product={product}
+                  />
+                )
+              })
+            }
           </div>
           <section className="price">
             <div className="price-items">

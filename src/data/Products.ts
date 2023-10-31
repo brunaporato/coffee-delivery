@@ -13,23 +13,25 @@ import Cubano from "../assets/products-image/Type=Cubano.png";
 import ExpressoCremoso from "../assets/products-image/Type=Expresso Cremoso.png";
 import Latte from "../assets/products-image/Type=Latte.png";
 
-export interface ProductType {
+export interface ProductList {
   id: number
   name: string
   description: string
   image: string
   price: string
   tags: string[]
+  quantity: number
 }
 
-export const products: ProductType[] = [
+export const products: ProductList[] = [
   {
     id: (Math.random() * 100),
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
     image: Espresso,
     price: "9,90",
-    tags: ["tradicional"]
+    tags: ["tradicional"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -37,7 +39,8 @@ export const products: ProductType[] = [
     description: 'Expresso diluído, menos intenso que o tradicional',
     image: Americano,
     price: "9,90",
-    tags: ["tradicional"]
+    tags: ["tradicional"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -45,7 +48,8 @@ export const products: ProductType[] = [
     description: 'Café expresso tradicional com espuma cremosa',
     image: ExpressoCremoso,
     price: "9,90",
-    tags: ["tradicional"]
+    tags: ["tradicional"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -53,7 +57,8 @@ export const products: ProductType[] = [
     description: 'Bebida preparada com café expresso e cubos de gelo',
     image: CafeGelado,
     price: "9,90",
-    tags: ["tradicional", "gelado"]
+    tags: ["tradicional", "gelado"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -61,7 +66,8 @@ export const products: ProductType[] = [
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     image: CafeComLeite,
     price: "9,90",
-    tags: ["tradicional", "com leite"]
+    tags: ["tradicional", "com leite"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -69,7 +75,8 @@ export const products: ProductType[] = [
     description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     image: Latte,
     price: "9,90",
-    tags: ["tradicional", "com leite"]
+    tags: ["tradicional", "com leite"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -77,7 +84,8 @@ export const products: ProductType[] = [
     description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
     image: Capuccino,
     price: "9,90",
-    tags: ["tradicional", "com leite"]
+    tags: ["tradicional", "com leite"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -85,7 +93,8 @@ export const products: ProductType[] = [
     description: 'Café expresso misturado com um pouco de leite quente e espuma',
     image: Macchiato,
     price: "9,90",
-    tags: ["tradicional", "com leite"]
+    tags: ["tradicional", "com leite"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -93,7 +102,8 @@ export const products: ProductType[] = [
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     image: Mochaccino,
     price: "9,90",
-    tags: ["tradicional", "com leite"]
+    tags: ["tradicional", "com leite"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -101,7 +111,8 @@ export const products: ProductType[] = [
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     image: ChocolateQuente,
     price: "9,90",
-    tags: ["tradicional", "com leite"]
+    tags: ["tradicional", "com leite"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -109,7 +120,8 @@ export const products: ProductType[] = [
     description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
     image: Cubano,
     price: "9,90",
-    tags: ["especial", "alcoólico", "gelado"]
+    tags: ["especial", "alcoólico", "gelado"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -117,7 +129,8 @@ export const products: ProductType[] = [
     description: 'Bebida adocicada preparada com café e leite de coco',
     image: Havaiano,
     price: "9,90",
-    tags: ["especial"]
+    tags: ["especial"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -125,7 +138,8 @@ export const products: ProductType[] = [
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     image: Arabe,
     price: "9,90",
-    tags: ["especial"]
+    tags: ["especial"],
+    quantity: 1
   },
   {
     id: (Math.random() * 100),
@@ -133,7 +147,8 @@ export const products: ProductType[] = [
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     image: Irlandes,
     price: "9,90",
-    tags: ["especial", "alcoólico"]
+    tags: ["especial", "alcoólico"],
+    quantity: 1
   },
   
 ]

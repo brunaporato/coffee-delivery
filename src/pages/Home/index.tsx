@@ -1,10 +1,11 @@
 import { BannerTop } from "./components/BannerTop";
 import { HomeContainer, MenuContainer } from "./styles";
 import { ProductCard } from "./components/ProductCard";
-
-import { products } from "../../data/Products";
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductContext";
 
 export function Home() {
+  const { items } = useContext(ProductContext)
   return (
     <HomeContainer>
       <BannerTop />
@@ -12,15 +13,11 @@ export function Home() {
         <h1>Nossos cafés</h1>
         <div className="menu">
           {
-            products.map((product) => {
+            items.map((item) => {
               return (
               <ProductCard
-                key={product.id}
-                title={product.name}
-                image={product.image}
-                description={product.description}
-                price={product.price}
-                tags={product.tags}
+                key={item.id}
+                product={item}
               />)
             })
           }

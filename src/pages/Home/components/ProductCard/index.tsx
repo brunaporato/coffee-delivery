@@ -1,40 +1,46 @@
 import { ShoppingCart } from "phosphor-react";
 import { AddToCartContainer, ProductCardContainer } from "./styles";
 import { InputNumber } from "../../../../components/InputNumber";
+import { ProductList } from "../../../../data/Products";
+import { useContext } from "react";
+import { ProductContext } from "../../../../context/ProductContext";
 
 interface ProductCardProps {
-  title: string;
-  image: string;
-  description: string;
-  price: string;
-  tags?: string[];
+  product: ProductList
 }
 
-export function ProductCard({title, image, description, price, tags}: ProductCardProps) {
+
+export function ProductCard({ product }: ProductCardProps) {
+  const { addProducts } = useContext(ProductContext)
+
+  function handleAddProducts() {
+    addProducts(product)
+  }
+
   return (
     <ProductCardContainer>
-      <img src={image} alt="" />
+      <img src={product.image} alt="" />
       <div className="tags">
-        {tags &&
-        tags.map((tag) => {
+        {product.tags &&
+        product.tags.map((tag) => {
           return (
             <span
-              key={tags.indexOf(tag)}
+              key={product.tags.indexOf(tag)}
             >
               {tag}
             </span>
           )
         })}
       </div>
-      <h2>{title}</h2>
-      <p>{description}</p>
+      <h2>{product.name}</h2>
+      <p>{product.description}</p>
       <AddToCartContainer>
         <section className="price">
-          <p>R$ <span>{price}</span></p>
+          <p>R$ <span>{product.price}</span></p>
         </section>
         <section className="quantity-cart">
           <InputNumber />
-          <div className="cart">
+          <div className="cart" onClick={handleAddProducts}>
             <ShoppingCart weight="fill" />
           </div>
         </section>
