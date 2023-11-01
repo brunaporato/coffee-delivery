@@ -10,7 +10,19 @@ export function Checkout() {
   const [activeOption, setActiveOption] = useState<string | null>(null);
 
   const { cartProducts } = useContext(ProductContext)
+  
+  let totalItemsPrice = 0;
+  const deliveryTax = 3.5;
 
+  cartProducts.forEach((product) => {
+    totalItemsPrice += parseFloat(product.price.replace(",", "."))
+  })
+
+  const totalItemsPriceFormatted = totalItemsPrice.toFixed(2).replace(".", ",");
+
+  const finalPrice = totalItemsPrice + deliveryTax
+  const finalPriceFormatted = finalPrice.toFixed(2).replace(".", ",")
+  
   function handleOptionClick(option: string) {
     if(option === activeOption) {
       setActiveOption(null)
@@ -95,7 +107,7 @@ export function Checkout() {
           <section className="price">
             <div className="price-items">
               <p>Total de itens</p>
-              <span>R$ 29,70</span>
+              <span>R$ {totalItemsPriceFormatted}</span>
             </div>
             <div className="delivery-tax">
               <p>Entrega</p>
@@ -103,7 +115,7 @@ export function Checkout() {
             </div>
             <div className="total-order">
               <h2>Total</h2>
-              <h2>R$ 33,20</h2>
+              <h2>R$ {finalPriceFormatted}</h2>
             </div>
           </section>
           <ConfirmOrderButton to="/success">

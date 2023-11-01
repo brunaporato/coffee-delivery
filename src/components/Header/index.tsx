@@ -15,6 +15,8 @@ export function Header() {
   useEffect(() => {
     if(numberOfItems > 0) {
       setHideSpan(false)
+    } else {
+      setHideSpan(true)
     }
   }, [numberOfItems]);
 
