@@ -5,11 +5,29 @@ import { useState, useContext } from "react";
 import { CartItem } from "./components/CartItem";
 import { ProductContext } from "../../context/ProductContext";
 
+export interface OrderInfo {
+  paymentOption: string | null
+  city: string
+  state: string
+  cep: string
+  number: string
+  neighbourhood: string
+  street: string
+}
+
 
 export function Checkout() {
   const [activeOption, setActiveOption] = useState<string | null>(null);
+  const [cep, setCep] = useState<string>("");
+  const [street, setStreet] = useState<string>("");
+  const [number, setNumber] = useState<string>("");
+  const [neighbourhood, setNeighbourhood] = useState<string>("");
+  const [city, setCity] = useState<string>("");
+  const [state, setState] = useState<string>("");
 
-  const { cartProducts } = useContext(ProductContext)
+  const { cartProducts } = useContext(ProductContext);
+
+  const localStorage = window.localStorage;
   
   let totalItemsPrice = 0;
   const deliveryTax = 3.5;
@@ -31,6 +49,20 @@ export function Checkout() {
     }
   }
 
+  function handleCheckout() {
+    const orderInfo: OrderInfo = {
+      paymentOption: activeOption,
+      city: city,
+      state: state,
+      cep: cep,
+      number: number,
+      neighbourhood: neighbourhood,
+      street: street,
+    }
+
+    localStorage.setItem("@coffeedelivery:orderinfo", JSON.stringify(orderInfo))
+  }
+
   return (
     <CheckoutContainer>
       <div className="finish-order">
@@ -44,16 +76,37 @@ export function Checkout() {
             </p>
           </TopOfFinishOrder>
           <div className="adress-inputs">
-            <InputText placeholder="CEP" className="cep" />
-            <InputText placeholder="Rua" />
+            <InputText
+              placeholder="CEP"
+              className="cep"
+              onChange={(e) => setCep(e.target.value)}
+            />
+            <InputText
+              placeholder="Rua"
+              onChange={(e) => setStreet(e.target.value)}
+            />
             <div className="number">
-              <InputText placeholder="Número" />
-              <InputText placeholder="Complemento" />
+              <InputText
+                placeholder="Número"
+                onChange={(e) => setNumber(e.target.value)}
+              />
+              <InputText
+                placeholder="Complemento"
+              />
             </div>
             <div className="city-state">
-              <InputText placeholder="Bairro" />
-              <InputText placeholder="Cidade" />
-              <InputText placeholder="UF" />
+              <InputText
+                placeholder="Bairro"
+                onChange={(e) => setNeighbourhood(e.target.value)}
+              />
+              <InputText
+                placeholder="Cidade"
+                onChange={(e) => setCity(e.target.value)}
+              />
+              <InputText
+                placeholder="UF"
+                onChange={(e) => setState(e.target.value)}
+              />
             </div>
           </div>
         </FinishOrderContainer>
@@ -69,20 +122,20 @@ export function Checkout() {
           </TopOfFinishOrder>
           <div className="payment-options">
             <SelectPayment
-              isActive={activeOption === "credit"}
-              onClick={() => handleOptionClick("credit")}
+              isActive={activeOption === "Cartão de Crédito"}
+              onClick={() => handleOptionClick("Cartão de Crédito")}
               text="cartão de crédito"
               icon={<CreditCard />}
             />
             <SelectPayment
-              isActive={activeOption === "debit"}
-              onClick={() => handleOptionClick("debit")}
+              isActive={activeOption === "Cartão de Débito"}
+              onClick={() => handleOptionClick("Cartão de Débito")}
               text="cartão de débito"
               icon={<Bank />}
             />
             <SelectPayment
-              isActive={activeOption === "cash"}
-              onClick={() => handleOptionClick("cash")}
+              isActive={activeOption === "Dinheiro"}
+              onClick={() => handleOptionClick("Dinheiro")}
               text="dinheiro"
               icon={<Money />}
             />
@@ -118,7 +171,10 @@ export function Checkout() {
               <h2>R$ {finalPriceFormatted}</h2>
             </div>
           </section>
-          <ConfirmOrderButton to="/success">
+          <ConfirmOrderButton
+            to="/success"
+            onClick={handleCheckout}
+          >
             confirmar pedido
           </ConfirmOrderButton>
         </OrderInfoContainer>
