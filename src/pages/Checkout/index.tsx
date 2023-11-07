@@ -62,7 +62,7 @@ export function Checkout() {
 
     localStorage.setItem("@coffeedelivery:orderinfo", JSON.stringify(orderInfo))
   }
-
+  
   return (
     <CheckoutContainer>
       <div className="finish-order">

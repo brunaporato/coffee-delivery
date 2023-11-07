@@ -1,22 +1,22 @@
-import { useContext } from "react";
+import { Trash } from "phosphor-react";
+import { CartItemContainer, RemoveButton } from "./styles";
 import { InputNumber } from "../../../../components/InputNumber";
 import { ProductList } from "../../../../data/Products";
-import { CartItemContainer, RemoveButton } from "./styles";
-import { Trash } from "phosphor-react";
+import { useContext } from "react";
 import { ProductContext } from "../../../../context/ProductContext";
 
 interface CartItemProps {
-  product: ProductList
+  product: ProductList;
 }
 
 export function CartItem({ product }: CartItemProps) {
-  const { RemoveProduct } = useContext(ProductContext)
+  const { RemoveProduct } = useContext(ProductContext);
 
-  const price = parseFloat(product.price.replace(",", ".")) * product.quantity
+  const price = parseFloat(product.price.replace(",", ".")) * product.quantity;
   const formattedPrice = price.toFixed(2).replace(".", ",");
 
-  function handleRemoveProduct()  {
-    RemoveProduct(product)
+  function handleRemoveProduct() {
+    RemoveProduct(product);
   }
 
   return (
@@ -36,5 +36,5 @@ export function CartItem({ product }: CartItemProps) {
       </div>
       <p>R$ {formattedPrice}</p>
     </CartItemContainer>
-  )
+  );
 }

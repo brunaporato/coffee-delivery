@@ -18,7 +18,8 @@ export function Home() {
               <ProductCard
                 key={item.id}
                 product={item}
-              />)
+              />
+              )
             })
           }
         </div>
