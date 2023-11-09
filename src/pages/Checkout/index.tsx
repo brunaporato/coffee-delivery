@@ -1,7 +1,7 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 import { CheckoutContainer, ConfirmOrderButton, FinishOrderContainer, InputText, OrderInfoContainer, TopOfFinishOrder } from "./styles";
 import { SelectPayment } from "./components/SelectPayment";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { CartItem } from "./components/CartItem";
 import { ProductContext } from "../../context/ProductContext";
 
@@ -32,16 +32,16 @@ export function Checkout() {
   let totalItemsPrice = 0;
   const deliveryTax = 3.5;
 
-  console.log(cartProducts)
-
   cartProducts.forEach((product) => {
-    totalItemsPrice += parseFloat(product.price.replace(",", "."))
-  })
+    totalItemsPrice += parseFloat(product.price.replace(",", ".")) * product.quantity;
+  });
 
   const totalItemsPriceFormatted = totalItemsPrice.toFixed(2).replace(".", ",");
-
-  const finalPrice = totalItemsPrice + deliveryTax
-  const finalPriceFormatted = finalPrice.toFixed(2).replace(".", ",")
+  
+  const finalPrice = totalItemsPrice + deliveryTax;
+  const finalPriceFormatted = finalPrice.toFixed(2).replace(".", ",");
+  
+  console.log(totalItemsPrice) 
   
   function handleOptionClick(option: string) {
     if(option === activeOption) {

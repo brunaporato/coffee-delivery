@@ -21,7 +21,6 @@ interface ProductContextProps {
   cartProducts: ProductType[]
   addProducts: (product: ProductList) => void
   RemoveProduct: (product: ProductList) => void
-  updateProductQuantity: (productId: number, newQuantity: number) => void
   changeCartProductQuantity: (productId: number, type: 'increase' | 'decrease') => void
 }
 
@@ -29,7 +28,6 @@ export const ProductContext = createContext({} as ProductContextProps);
 
 export function ProductProvider({ children }: ProductProviderProps) {
   const [cartProducts, setCartProducts] = useState<ProductType[]>([]);
-  // const [quantity, setQuantity] = useState(1);
 
   function addProducts(product: ProductList) {
     const isProductAdded = cartProducts.findIndex((cartProduct) => cartProduct.id === product.id);
@@ -43,13 +41,6 @@ export function ProductProvider({ children }: ProductProviderProps) {
     })
 
     setCartProducts(newCart)
-
-    // if (isProductAdded >= 0) {
-    //   cartProducts[isProductAdded].quantity += quantity;
-    // } else {
-    //   const productWithQuantity = { ...product, quantity };
-    //   setCartProducts((state) => [...state, productWithQuantity]);
-    // }
   }
 
   function changeCartProductQuantity(
@@ -75,15 +66,6 @@ export function ProductProvider({ children }: ProductProviderProps) {
     setCartProducts(cartProducts.filter((cartProduct) => cartProduct.id !== product.id));
   }
 
-  function updateProductQuantity(productId: number, newQuantity: number) {
-    const updatedProducts = products.map((product) => {
-      if (product.id === productId) {
-        return { ...product, quantity: newQuantity }
-      }
-      return product;
-    })
-    setCartProducts(updatedProducts)
-  }
 
   const items = products;
 
@@ -93,7 +75,6 @@ export function ProductProvider({ children }: ProductProviderProps) {
       cartProducts,
       addProducts,
       RemoveProduct,
-      updateProductQuantity,
       changeCartProductQuantity,
       }}>
       {children}
