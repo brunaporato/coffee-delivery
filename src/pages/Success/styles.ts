@@ -36,6 +36,31 @@ export const SuccessContainer = styled.div`
       border: 1px solid ${(props) => props.theme["yellow-dark"]};
     }
   }
+
+  @media (max-width: 1050px) {
+    padding: 8rem;
+  }
+
+  @media (max-width: 900px) {
+    padding: 8rem 3rem;
+  }
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    img {
+      width: 30rem;
+    }
+
+    main {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3rem;
+    }
+  }
 `
 
 export const InfosSuccess = styled.div`
