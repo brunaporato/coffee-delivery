@@ -22,6 +22,10 @@ export const HeaderContainer = styled.div`
   .hide {
     display: none;
   }
+
+  @media (max-width: 980px) {
+    padding: 3.2rem 3rem;
+  }
 `
 
 export const LocationContainer = styled.div`

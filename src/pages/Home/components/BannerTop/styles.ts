@@ -37,4 +37,16 @@ export const BannerTopContainer = styled.div`
       gap: 2rem;
     }
   }
+
+  @media (max-width: 980px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+
+    padding-top: 0;
+
+    img {
+      width: 30rem;
+    }
+  }
   `
