@@ -25,4 +25,13 @@ export const MenuContainer = styled.main`
     grid-gap: 4rem 3.2rem;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   }
+
+  @media (max-width: 511px) {
+    padding: 3.2rem 4rem 16rem;
+    text-align: center;
+
+    .menu {
+      margin: 0 auto;
+    }
+  }
 `
