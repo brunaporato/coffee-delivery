@@ -1,7 +1,7 @@
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 import { CheckoutContainer, ConfirmOrderButton, FinishOrderContainer, InputText, OrderInfoContainer, TopOfFinishOrder } from "./styles";
 import { SelectPayment } from "./components/SelectPayment";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { CartItem } from "./components/CartItem";
 import { ProductContext } from "../../context/ProductContext";
 
