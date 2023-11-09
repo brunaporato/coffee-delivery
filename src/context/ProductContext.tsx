@@ -22,6 +22,7 @@ interface ProductContextProps {
   addProducts: (product: ProductList) => void
   RemoveProduct: (product: ProductList) => void
   changeCartProductQuantity: (productId: number, type: 'increase' | 'decrease') => void
+  cleanCart: () => void
 }
 
 export const ProductContext = createContext({} as ProductContextProps);
@@ -41,6 +42,10 @@ export function ProductProvider({ children }: ProductProviderProps) {
     })
 
     setCartProducts(newCart)
+  }
+
+  function cleanCart() {
+    setCartProducts([])
   }
 
   function changeCartProductQuantity(
@@ -76,6 +81,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
       addProducts,
       RemoveProduct,
       changeCartProductQuantity,
+      cleanCart,
       }}>
       {children}
     </ProductContext.Provider>

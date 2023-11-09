@@ -25,7 +25,7 @@ export function Checkout() {
   const [city, setCity] = useState<string>("");
   const [state, setState] = useState<string>("");
 
-  const { cartProducts } = useContext(ProductContext);
+  const { cartProducts, cleanCart } = useContext(ProductContext);
 
   const localStorage = window.localStorage;
   
@@ -61,6 +61,7 @@ export function Checkout() {
     }
 
     localStorage.setItem("@coffeedelivery:orderinfo", JSON.stringify(orderInfo))
+    cleanCart()
   }
 
   return (
