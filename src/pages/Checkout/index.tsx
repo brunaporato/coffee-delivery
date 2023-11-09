@@ -63,6 +63,8 @@ export function Checkout() {
       return alert("Preencha o endereço completo")
     } else if (activeOption == null) {
       return alert("Escolha uma forma de pagamento")
+    } else if(cartProducts.length == 0) {
+      return alert("Seu carrinho está vazio")
     } else {
       const orderInfo: OrderInfo = {
         paymentOption: activeOption,
