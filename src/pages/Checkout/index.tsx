@@ -32,6 +32,8 @@ export function Checkout() {
   let totalItemsPrice = 0;
   const deliveryTax = 3.5;
 
+  console.log(cartProducts)
+
   cartProducts.forEach((product) => {
     totalItemsPrice += parseFloat(product.price.replace(",", "."))
   })
@@ -62,7 +64,7 @@ export function Checkout() {
 
     localStorage.setItem("@coffeedelivery:orderinfo", JSON.stringify(orderInfo))
   }
-  
+
   return (
     <CheckoutContainer>
       <div className="finish-order">

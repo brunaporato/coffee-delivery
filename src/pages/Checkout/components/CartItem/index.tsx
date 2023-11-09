@@ -10,7 +10,7 @@ interface CartItemProps {
 }
 
 export function CartItem({ product }: CartItemProps) {
-  const { RemoveProduct } = useContext(ProductContext);
+  const { RemoveProduct, changeCartProductQuantity } = useContext(ProductContext);
 
   const price = parseFloat(product.price.replace(",", ".")) * product.quantity;
   const formattedPrice = price.toFixed(2).replace(".", ",");
@@ -19,6 +19,15 @@ export function CartItem({ product }: CartItemProps) {
     RemoveProduct(product);
   }
 
+  function handleIncrease() {
+    changeCartProductQuantity(product.id, 'increase')
+  }
+
+  function handleDecrease() {
+    changeCartProductQuantity(product.id, 'decrease')
+  }
+
+
   return (
     <CartItemContainer>
       <div className="image-info">
@@ -26,7 +35,11 @@ export function CartItem({ product }: CartItemProps) {
         <div className="info">
           <p>{product.name}</p>
           <div className="quantity-remove">
-            <InputNumber />
+            <InputNumber
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              quantity={product.quantity}
+            />
             <RemoveButton onClick={handleRemoveProduct}>
               <Trash size={16} className="icon" />
               remover
