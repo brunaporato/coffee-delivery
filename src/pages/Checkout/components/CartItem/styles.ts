@@ -44,6 +44,21 @@ export const CartItemContainer = styled.div`
       }
     }
   }
+
+  @media (max-width: 480px) {
+    .image-info {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    align-items: center;
+  }
+
+  @media (max-width: 395px) {
+    flex-direction: column;
+    gap: 3.2rem;
+    align-items: flex-start;
+  }
 `
 
 export const RemoveButton = styled.button`

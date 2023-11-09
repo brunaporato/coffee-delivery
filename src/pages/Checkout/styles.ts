@@ -16,6 +16,13 @@ export const CheckoutContainer = styled.div`
 
     margin-bottom: 1.5rem;
   }
+
+  @media (max-width: 980px) {
+    display: flex;
+    flex-direction: column;
+
+    padding: 4rem;
+  }
 `
 
 export const FinishOrderContainer = styled.section`
@@ -58,6 +65,13 @@ export const FinishOrderContainer = styled.section`
   .payment-options {
     display: flex;
     gap: 1.5rem;
+  }
+
+  @media (max-width: 980px) {
+    .payment-options {
+      flex-direction: column;
+      width: 100%;
+    }
   }
 `
 

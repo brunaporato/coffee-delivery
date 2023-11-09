@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const SelectPaymentContainer = styled.div`
+  width: 100%;
+
   button {
     background: ${(props) => props.theme["base-button"]};
     border-radius: 6px;
@@ -8,12 +10,14 @@ export const SelectPaymentContainer = styled.div`
 
     font-family: 'Roboto', sans-serif;
 
-    width: 16rem;
+    min-width: 16rem;
+    width: 100%;
 
     display: flex;
     align-items: center;
     gap: 1.2rem;
     padding: 1.6rem;
+    justify-content: center;
 
     text-transform: uppercase;
     font-size: 1.05rem;
