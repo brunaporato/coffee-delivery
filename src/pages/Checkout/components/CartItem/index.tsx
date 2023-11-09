@@ -24,7 +24,12 @@ export function CartItem({ product }: CartItemProps) {
   }
 
   function handleDecrease() {
-    changeCartProductQuantity(product.id, 'decrease')
+    if(product.quantity > 1) {
+      changeCartProductQuantity(product.id, 'decrease')
+    } else {
+      const wantToRemoveProduct = confirm("Tem certeza que deseja excluir o produto?")
+      wantToRemoveProduct ? handleRemoveProduct() : ""
+    }
   }
 
 
