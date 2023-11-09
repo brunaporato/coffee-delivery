@@ -37,10 +37,10 @@ export function Checkout() {
   cartProducts.forEach((product) => {
     totalItemsPrice += parseFloat(product.price.replace(",", ".")) * product.quantity;
   });
-
-  const totalItemsPriceFormatted = totalItemsPrice.toFixed(2).replace(".", ",");
+  const isCartEmpty = totalItemsPrice === 0
+  const finalPrice = isCartEmpty ? 0 : totalItemsPrice + deliveryTax;
   
-  const finalPrice = totalItemsPrice + deliveryTax;
+  const totalItemsPriceFormatted = totalItemsPrice.toFixed(2).replace(".", ",");
   const finalPriceFormatted = finalPrice.toFixed(2).replace(".", ",");
   
   function handleOptionClick(option: string) {

@@ -16,10 +16,12 @@ export const CheckoutContainer = styled.div`
     margin-bottom: 1.5rem;
   }
 
-  @media (max-width: 980px) {
+  @media (max-width: 1186px) {
     display: flex;
     flex-direction: column;
+  }
 
+  @media (max-width: 980px) {
     padding: 4rem;
   }
 `
