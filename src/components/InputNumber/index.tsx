@@ -9,17 +9,6 @@ interface InputNumberProps {
 }
 
 export function InputNumber({ onIncrease, onDecrease, quantity }: InputNumberProps) {
-  // const [quantity, setQuantity] = useState(1)
-
-  // function handleAddQuantity() {
-  //   setQuantity(quantity + 1);
-  // }
-
-  // function handleRemoveQuantity() {
-  //   if (quantity > 1) {
-  //     setQuantity(quantity - 1);
-  //   }
-  // }
 
   return (
     <InputNumberContainer>
