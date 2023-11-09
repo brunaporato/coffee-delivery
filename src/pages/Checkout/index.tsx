@@ -41,8 +41,6 @@ export function Checkout() {
   const finalPrice = totalItemsPrice + deliveryTax;
   const finalPriceFormatted = finalPrice.toFixed(2).replace(".", ",");
   
-  console.log(totalItemsPrice) 
-  
   function handleOptionClick(option: string) {
     if(option === activeOption) {
       setActiveOption(null)
