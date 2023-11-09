@@ -4,6 +4,7 @@ import { SelectPayment } from "./components/SelectPayment";
 import { useState, useContext } from "react";
 import { CartItem } from "./components/CartItem";
 import { ProductContext } from "../../context/ProductContext";
+import { useNavigate } from "react-router-dom";
 
 export interface OrderInfo {
   paymentOption: string | null
@@ -28,6 +29,7 @@ export function Checkout() {
   const { cartProducts, cleanCart } = useContext(ProductContext);
 
   const localStorage = window.localStorage;
+  const navigate = useNavigate();
   
   let totalItemsPrice = 0;
   const deliveryTax = 3.5;
@@ -50,18 +52,32 @@ export function Checkout() {
   }
 
   function handleCheckout() {
-    const orderInfo: OrderInfo = {
-      paymentOption: activeOption,
-      city: city,
-      state: state,
-      cep: cep,
-      number: number,
-      neighbourhood: neighbourhood,
-      street: street,
+    if (
+      cep == ""
+      || street == ""
+      || number == ""
+      || neighbourhood == ""
+      || city == ""
+      || state == ""
+      ) {
+      return alert("Preencha o endereço completo")
+    } else if (activeOption == null) {
+      return alert("Escolha uma forma de pagamento")
+    } else {
+      const orderInfo: OrderInfo = {
+        paymentOption: activeOption,
+        city,
+        state,
+        cep,
+        number,
+        neighbourhood,
+        street,
+      }
+  
+      localStorage.setItem("@coffeedelivery:orderinfo", JSON.stringify(orderInfo))
+      cleanCart()
+      navigate("/success")
     }
-
-    localStorage.setItem("@coffeedelivery:orderinfo", JSON.stringify(orderInfo))
-    cleanCart()
   }
 
   return (
@@ -173,7 +189,6 @@ export function Checkout() {
             </div>
           </section>
           <ConfirmOrderButton
-            to="/success"
             onClick={handleCheckout}
           >
             confirmar pedido
