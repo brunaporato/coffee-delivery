@@ -78,7 +78,7 @@ export function Checkout() {
   
       localStorage.setItem("@coffeedelivery:orderinfo", JSON.stringify(orderInfo))
       cleanCart()
-      navigate("/success")
+      navigate("/coffee-delivery/success")
     }
   }
 

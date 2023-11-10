@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <NavLink to="/">
+      <NavLink to="/coffee-delivery">
         <img src={logo} alt="" />
       </NavLink>
       <div className="right-side">
@@ -30,7 +30,7 @@ export function Header() {
           <MapPin weight="fill" size={22} />
           <p>São Paulo, SP</p>
         </LocationContainer>
-        <CheckoutCartContainer to="/checkout">
+        <CheckoutCartContainer to="/coffee-delivery/checkout">
           <ShoppingCart weight="fill" size={22} />
           <span className={hideSpan ? 'hide' : ''}>{numberOfItems}</span>
         </CheckoutCartContainer>
